@@ -17,12 +17,12 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import { CarouselNext } from "./CaruselNextBtn";
 import { projectData } from "../data/data";
-import Markdown from "react-markdown";
+import ProjectMarkdown from "./ProjectMarkdown";
 import { useRef } from "react";
 
 export function CaruselSection(){
   const autoplayRef = useRef<ReturnType<typeof Autoplay> | null>(null);
-  const autoplay = Autoplay({ delay: 4000 });
+  const autoplay = Autoplay({ delay: 6000 });
   autoplayRef.current = autoplay;
 
     return(
@@ -57,10 +57,9 @@ export function CaruselSection(){
                     </div>
                     
                     <div className="mt-5 prose prose-neutral text-sm max-w-none">
-                      <Markdown>{project.content}</Markdown>
+                      <ProjectMarkdown path={project.contentPath} />
                     </div>
                   </CardDescription>
-
 
                 </Card>
               </CarouselItem>

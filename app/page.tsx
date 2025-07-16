@@ -6,9 +6,9 @@ import { aboutData } from "./data/data";
 export default function Home() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center mt-10 font-sans">
-      <section id="Header" className="w-[70%] flex flex-col items-start">
+      <section id="Header" className="w-[70%] flex flex-col items-start ml-[17rem]">
         <p className="font-bold text-[24px]">
-          안녕하세요, FLOW를 읽고 설계하는 개발자 진건희입니다.
+          안녕하세요, <span className="text-[#0968DA] font-bold">FLOW를 읽고 설계하는</span> 개발자 진건희입니다.
         </p>
         <div className="flex gap-[10px] mt-5 flex-wrap">
           <Badge variant="default">프론트엔드 개발</Badge>
@@ -18,13 +18,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="About me" className="mt-2 w-[70%] flex flex-col items-start">
+      <section id="About me" className="mt-2 ml-[17rem] w-[70%] flex flex-col items-start">
         {aboutData.map((about, index) => (
           <AboutMe key={index} about={about} />
         ))}
       </section>
 
-      <section id="project" className="w-[70%] flex flex-col items-start mt-[4rem]">
+      <section id="project" className="w-[70%] flex flex-col items-start mt-[4rem] ml-[17rem]">
         <p className="font-semibold text-[21px] mb-4">
           다양한 실무 경험을 보유하고 있습니다.
         </p>
