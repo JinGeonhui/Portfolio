@@ -5,7 +5,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
@@ -14,12 +13,18 @@ import {
   CardContent,
   CardDescription,
 } from "@/components/ui/card"
-import Autoplay from "embla-carousel-autoplay"
 
+import Autoplay from "embla-carousel-autoplay"
+import { CarouselNext } from "./CaruselNextBtn";
 import { projectData } from "../data/data";
-import Markdown from "react-markdown";
+import ProjectMarkdown from "./ProjectMarkdown";
+import { useRef } from "react";
 
 export function CaruselSection(){
+  const autoplayRef = useRef<ReturnType<typeof Autoplay> | null>(null);
+  const autoplay = Autoplay({ delay: 6000 });
+  autoplayRef.current = autoplay;
+
     return(
         <Carousel
             className="w-full pb-5"
@@ -52,17 +57,16 @@ export function CaruselSection(){
                     </div>
                     
                     <div className="mt-5 prose prose-neutral text-sm max-w-none">
-                      <Markdown>{project.content}</Markdown>
+                      <ProjectMarkdown path={project.contentPath} />
                     </div>
                   </CardDescription>
-
 
                 </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
           <CarouselPrevious />
-          <CarouselNext />
+          <CarouselNext autoplayRef={autoplayRef} />
         </Carousel>
     )
 }
